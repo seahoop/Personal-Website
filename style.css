@@ -1,0 +1,98 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Section Styles */
+  .section {
+    padding: 60px;
+    text-align: center;
+  }
+  
+  #landing-page {
+    background-image: url('https://i.postimg.cc/FHCWnxM0/360-F-207154340-w-LIJus4m3-SBl5s-AQmpq-N3-Um7-REn-Uhsk-U.jpg');
+    background-size: cover;
+    color: white;
+    font-size: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #about-me {
+    background-color: #f4f4f4;
+  }
+  
+  #projects {
+    background-color: #e2e2e2;
+  }
+  
+  /* Project Styles */
+  .project {
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .project img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .project img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Navigation Styles */
+  nav {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animation for Landing Page */
+  .animated-text {
+    animation: fadeIn 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
