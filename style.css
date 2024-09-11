@@ -23,6 +23,12 @@ body {
     justify-content: center;
     align-items: center;
   }
+  .profile-picture{
+    width:400px ;
+    height: auto;
+    border-radius: 50%
+
+  }
   
   #about-me {
     background-color: #f4f4f4;
@@ -38,17 +44,7 @@ body {
     margin: 20px;
   }
   
-  .project img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .project img:hover {
-    transform: scale(1.05);
-  }
-  
+ 
   /* Navigation Styles */
   nav {
     background-color: #333;
