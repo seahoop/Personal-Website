@@ -1,94 +1,410 @@
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Section Styles */
-  .section {
-    padding: 60px;
-    text-align: center;
-  }
-  
-  #landing-page {
-    background-image: url('https://i.postimg.cc/FHCWnxM0/360-F-207154340-w-LIJus4m3-SBl5s-AQmpq-N3-Um7-REn-Uhsk-U.jpg');
-    background-size: cover;
-    color: white;
-    font-size: 2rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .profile-picture{
-    width:400px ;
-    height: auto;
-    border-radius: 50%
+/* CSS Variables for consistent theming */
+:root {
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #1a1a1a;
+  --accent-color: #00d4ff;
+  --accent-glow: #00d4ff40;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: #333333;
+  --card-bg: rgba(26, 26, 26, 0.8);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Futuristic background with animated gradient */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, var(--primary-bg) 0%, #0f0f23 100%);
+  z-index: -1;
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(1deg); }
+}
+
+/* Section Styles with Glass Morphism */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-smooth);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  margin: 20px;
+  z-index: -1;
+  transition: var(--transition-smooth);
+}
+
+.section:hover::before {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Landing Page */
+#landing-page {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 212, 255, 0.1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#landing-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://i.postimg.cc/FHCWnxM0/360-F-207154340-w-LIJus4m3-SBl5s-AQmpq-N3-Um7-REn-Uhsk-U.jpg') center/cover;
+  opacity: 0.3;
+  z-index: -2;
+  animation: parallax 20s ease-in-out infinite;
+}
+
+@keyframes parallax {
+  0%, 100% { transform: scale(1.1) translateY(0px); }
+  50% { transform: scale(1.1) translateY(-20px); }
+}
+
+#landing-page h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes titleGlow {
+  0% { filter: drop-shadow(0 0 10px var(--accent-glow)); }
+  100% { filter: drop-shadow(0 0 30px var(--accent-color)); }
+}
+
+/* Profile Picture with Futuristic Frame */
+.profile-picture {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+  box-shadow: 
+    0 0 30px var(--accent-glow),
+    inset 0 0 30px var(--accent-glow);
+  transition: var(--transition-smooth);
+  position: relative;
+  z-index: 1;
+  animation: profileFloat 6s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.profile-picture:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 
+    0 0 50px var(--accent-color),
+    inset 0 0 50px var(--accent-glow);
+}
+
+/* Navigation with Futuristic Design */
+nav {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+nav:hover {
+  border-bottom-color: var(--accent-color);
+  box-shadow: 0 5px 20px var(--accent-glow);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav ul li a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: var(--transition-smooth);
+  background: transparent;
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, var(--accent-glow), transparent);
+  border-radius: 25px;
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+nav ul li a:hover::before {
+  opacity: 1;
+}
+
+nav ul li a:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--accent-glow);
+}
+
+/* Projects Section */
+#projects {
+  background: var(--secondary-bg);
+}
+
+#projects h1 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+/* Project Cards with Hover Effects */
+.project, .project2 {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 800px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.project::before, .project2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+  transition: var(--transition-slow);
+  z-index: -1;
+}
+
+.project:hover::before, .project2:hover::before {
+  left: 100%;
+}
+
+.project:hover, .project2:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--accent-color);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px var(--accent-glow);
+}
+
+.project h2, .project2 h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.project p, .project2 p {
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* Project Links with Futuristic Styling */
+.project a, .project2 a {
+  display: inline-block;
+  color: var(--accent-color);
+  text-decoration: none;
+  margin: 10px 15px 10px 0;
+  padding: 12px 25px;
+  border: 1px solid var(--accent-color);
+  border-radius: 25px;
+  background: transparent;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.project a::before, .project2 a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+.project a:hover::before, .project2 a:hover::before {
+  left: 0;
+}
+
+.project a:hover, .project2 a:hover {
+  color: var(--primary-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+/* Project Images */
+.project img, .project2 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-top: 20px;
+  border: 2px solid var(--border-color);
+  transition: var(--transition-smooth);
+  filter: grayscale(20%);
+}
+
+.project img:hover, .project2 img:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px var(--accent-glow);
+  filter: grayscale(0%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #landing-page h1 {
+    font-size: 2.5rem;
   }
   
-  #about-me {
-    background-color: #f4f4f4;
-  }
-  
-  #projects {
-    background-color: #e2e2e2;
-  }
-  
-  /* Project Styles */
-  .project {
-    display: inline-block;
-    margin: 20px;
-  }
-  
- 
-  /* Navigation Styles */
-  nav {
-    background-color: #333;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  .profile-picture {
+    width: 250px;
+    height: 250px;
   }
   
   nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  nav ul li {
-    margin: 0 15px;
+    gap: 20px;
   }
   
   nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
+    padding: 8px 15px;
   }
   
-  nav ul li a:hover {
-    text-decoration: underline;
+  .section {
+    padding: 60px 15px;
   }
   
-  /* Animation for Landing Page */
-  .animated-text {
-    animation: fadeIn 2s ease-in-out infinite alternate;
+  .project, .project2 {
+    margin: 20px 10px;
+    padding: 20px;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation for elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project, .project2 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
   
