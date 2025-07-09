@@ -234,7 +234,7 @@ nav ul li a:hover {
 }
 
 /* Project Cards with Hover Effects */
-.project, .project2 {
+.project, .project2, .project3 {
   background: var(--card-bg);
   backdrop-filter: blur(15px);
   border: 1px solid var(--border-color);
@@ -247,7 +247,7 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
-.project::before, .project2::before {
+.project::before, .project2::before, .project3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -259,11 +259,11 @@ nav ul li a:hover {
   z-index: -1;
 }
 
-.project:hover::before, .project2:hover::before {
+.project:hover::before, .project2:hover::before, .project3:hover::before {
   left: 100%;
 }
 
-.project:hover, .project2:hover {
+.project:hover, .project2:hover, .project3:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: var(--accent-color);
   box-shadow: 
@@ -271,21 +271,21 @@ nav ul li a:hover {
     0 0 30px var(--accent-glow);
 }
 
-.project h2, .project2 h2 {
+.project h2, .project2 h2, .project3 h2 {
   font-size: 2rem;
   margin-bottom: 15px;
   color: var(--accent-color);
   text-shadow: 0 0 10px var(--accent-glow);
 }
 
-.project p, .project2 p {
+.project p, .project2 p, .project3 p {
   color: var(--text-secondary);
   margin-bottom: 15px;
   line-height: 1.8;
 }
 
 /* Project Links with Futuristic Styling */
-.project a, .project2 a {
+.project a, .project2 a, .project3 a {
   display: inline-block;
   color: var(--accent-color);
   text-decoration: none;
@@ -299,7 +299,7 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
-.project a::before, .project2 a::before {
+.project a::before, .project2 a::before, .project3 a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -311,18 +311,18 @@ nav ul li a:hover {
   z-index: -1;
 }
 
-.project a:hover::before, .project2 a:hover::before {
+.project a:hover::before, .project2 a:hover::before, .project3 a:hover::before {
   left: 0;
 }
 
-.project a:hover, .project2 a:hover {
+.project a:hover, .project2 a:hover, .project3 a:hover {
   color: var(--primary-bg);
   transform: translateY(-3px);
   box-shadow: 0 10px 20px var(--accent-glow);
 }
 
 /* Project Images */
-.project img, .project2 img {
+.project img, .project2 img, .project3 img {
   max-width: 100%;
   height: auto;
   border-radius: 15px;
@@ -332,7 +332,7 @@ nav ul li a:hover {
   filter: grayscale(20%);
 }
 
-.project img:hover, .project2 img:hover {
+.project img:hover, .project2 img:hover, .project3 img:hover {
   transform: scale(1.05);
   border-color: var(--accent-color);
   box-shadow: 0 10px 30px var(--accent-glow);
@@ -363,7 +363,7 @@ nav ul li a:hover {
     padding: 60px 15px;
   }
   
-  .project, .project2 {
+  .project, .project2, .project3 {
     margin: 20px 10px;
     padding: 20px;
   }
@@ -386,7 +386,7 @@ html {
   }
 }
 
-.project, .project2 {
+.project, .project2, .project3 {
   animation: fadeInUp 0.8s ease-out;
 }
 
