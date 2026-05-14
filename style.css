@@ -339,6 +339,85 @@ nav ul li a:hover {
   filter: grayscale(0%);
 }
 
+/* Professional Statement Section */
+.ps-section {
+  padding: 70px 20px;
+  text-align: center;
+  background: var(--primary-bg);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ps-label {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+}
+
+.statement-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 16px 16px 0;
+  padding: 35px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.statement-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-glow);
+}
+
+.statement-card p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* Links group inside project cards */
+.links-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 5px;
+}
+
+/* Annotation block inside project cards */
+.annotation {
+  background: rgba(0, 212, 255, 0.04);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 10px 10px 0;
+  padding: 22px 26px;
+  margin-top: 28px;
+  text-align: left;
+}
+
+.annotation h3 {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.annotation p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   #landing-page h1 {
@@ -366,6 +445,22 @@ nav ul li a:hover {
   .project, .project2, .project3 {
     margin: 20px 10px;
     padding: 20px;
+  }
+
+  .ps-section {
+    padding: 50px 15px;
+  }
+
+  .statement-card {
+    padding: 25px 20px;
+  }
+
+  .ps-label {
+    font-size: 1.6rem;
+  }
+
+  .annotation {
+    padding: 18px 16px;
   }
 }
 
