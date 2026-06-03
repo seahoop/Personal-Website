@@ -418,6 +418,76 @@ nav ul li a:hover {
   margin: 0;
 }
 
+/* Résumé Section */
+.resume-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.resume-btn {
+  display: inline-block;
+  color: var(--accent-color);
+  text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid var(--accent-color);
+  border-radius: 25px;
+  background: transparent;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  transition: var(--transition-smooth);
+  z-index: -1;
+}
+
+.resume-btn:hover::before {
+  left: 0;
+}
+
+.resume-btn:hover {
+  color: var(--primary-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+.resume-embed {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.resume-embed iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+}
+
+/* Revised artifact note */
+.revised-note {
+  color: var(--accent-color) !important;
+  font-style: italic;
+  font-size: 0.9rem !important;
+  margin-top: 12px !important;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   #landing-page h1 {
